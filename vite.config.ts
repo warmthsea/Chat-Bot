@@ -1,9 +1,13 @@
 import { rmSync } from 'node:fs'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import Components from 'unplugin-vue-components/vite'
+import AutoImport from 'unplugin-auto-import/vite'
+
 import electron from 'vite-plugin-electron'
 import renderer from 'vite-plugin-electron-renderer'
 import pkg from './package.json'
+import path from 'node:path'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -14,6 +18,12 @@ export default defineConfig(({ command }) => {
   const sourcemap = isServe || !!process.env.VSCODE_DEBUG
 
   return {
+    resolve: {
+      alias: {
+        '~/': `${path.resolve(__dirname, 'src')}/`,
+        '@/': `${path.resolve(__dirname, 'src')}/`
+      }
+    },
     plugins: [
       vue(),
       electron([
@@ -22,7 +32,7 @@ export default defineConfig(({ command }) => {
           entry: 'electron/main/index.ts',
           onstart(options) {
             if (process.env.VSCODE_DEBUG) {
-              console.log(/* For `.vscode/.debug.script.mjs` */'[startup] Electron App')
+              console.log(/* For `.vscode/.debug.script.mjs` */ '[startup] Electron App')
             } else {
               options.startup()
             }
@@ -33,15 +43,15 @@ export default defineConfig(({ command }) => {
               minify: isBuild,
               outDir: 'dist-electron/main',
               rollupOptions: {
-                external: Object.keys('dependencies' in pkg ? pkg.dependencies : {}),
-              },
-            },
-          },
+                external: Object.keys('dependencies' in pkg ? pkg.devDependencies : {})
+              }
+            }
+          }
         },
         {
           entry: 'electron/preload/index.ts',
           onstart(options) {
-            // Notify the Renderer-Process to reload the page when the Preload-Scripts build is complete, 
+            // Notify the Renderer-Process to reload the page when the Preload-Scripts build is complete,
             // instead of restarting the entire Electron App.
             options.reload()
           },
@@ -51,22 +61,38 @@ export default defineConfig(({ command }) => {
               minify: isBuild,
               outDir: 'dist-electron/preload',
               rollupOptions: {
-                external: Object.keys('dependencies' in pkg ? pkg.dependencies : {}),
-              },
-            },
-          },
+                external: Object.keys('dependencies' in pkg ? pkg.devDependencies : {})
+              }
+            }
+          }
         }
       ]),
       // Use Node.js API in the Renderer-process
       renderer(),
+      // https://github.com/antfu/unplugin-auto-import
+      AutoImport({
+        imports: ['vue', 'vue/macros', 'vue-router', '@vueuse/core'],
+        dts: true,
+        dirs: ['./src/composables'],
+        vueTemplate: true,
+        resolvers: []
+      }),
+
+      // https://github.com/antfu/vite-plugin-components
+      Components({
+        dts: true,
+        resolvers: []
+      })
     ],
-    server: process.env.VSCODE_DEBUG && (() => {
-      const url = new URL(pkg.debug.env.VITE_DEV_SERVER_URL)
-      return {
-        host: url.hostname,
-        port: +url.port,
-      }
-    })(),
-    clearScreen: false,
+    server:
+      process.env.VSCODE_DEBUG &&
+      (() => {
+        const url = new URL(pkg.debug.env.VITE_DEV_SERVER_URL)
+        return {
+          host: url.hostname,
+          port: +url.port
+        }
+      })(),
+    clearScreen: false
   }
 })

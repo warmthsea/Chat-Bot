@@ -14,6 +14,24 @@
   -webkit-text-size-adjust: 100%;
 }
 
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-clip: content-box;
+  border: 2px solid transparent;
+  background-color: inherit;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.2) ;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -25,10 +43,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -60,17 +74,6 @@ code {
   padding: 2px 4px;
   margin: 0 4px;
   border-radius: 4px;
-}
-
-.card {
-  padding: 2em;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
 @media (prefers-color-scheme: light) {

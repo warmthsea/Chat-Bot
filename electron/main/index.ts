@@ -42,12 +42,13 @@ const indexHtml = join(process.env.DIST, 'index.html')
 
 async function createWindow() {
   win = new BrowserWindow({
-    title: 'warmthsea',
+    title: 'Chat Bot',
     width: 900,
-    height: 800,
+    height: 700,
     x: 1300,
-    y: 300,
-    frame: true,
+    y: 600,
+    frame: !true,
+    // frame: true,
     titleBarStyle: 'hiddenInset',
     icon: join(process.env.PUBLIC, 'logo.ico'),
     webPreferences: {
@@ -111,6 +112,10 @@ app.on('activate', () => {
 
 ipcMain.on('window-close', function () {
   win.close()
+})
+
+ipcMain.on('window-minimize', function () {
+  win.minimize()
 })
 
 ipcMain.on('window-open-tools', function () {
