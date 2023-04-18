@@ -48,7 +48,7 @@ async function createWindow() {
     x: 1200,
     y: 200,
     frame: true,
-    icon: join(process.env.PUBLIC, 'favicon.ico'),
+    icon: join(process.env.PUBLIC, 'logo.ico'),
     webPreferences: {
       preload,
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
@@ -58,10 +58,6 @@ async function createWindow() {
       contextIsolation: false
     }
   })
-
-  // 设置应用程序的图标
-  // const iconPath = '/path/to/icon.png'
-  // win.setIcon(iconPath)
 
   if (process.env.VITE_DEV_SERVER_URL) {
     // electron-vite-vue#298
