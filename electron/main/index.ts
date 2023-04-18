@@ -45,9 +45,10 @@ async function createWindow() {
     title: 'warmthsea',
     width: 900,
     height: 800,
-    x: 1200,
-    y: 200,
+    x: 1300,
+    y: 300,
     frame: true,
+    titleBarStyle: 'hiddenInset',
     icon: join(process.env.PUBLIC, 'logo.ico'),
     webPreferences: {
       preload,
@@ -63,7 +64,7 @@ async function createWindow() {
     // electron-vite-vue#298
     win.loadURL(url)
     // Open devTool if the app is not packaged
-    win.webContents.openDevTools()
+    // win.webContents.openDevTools()
   } else {
     win.loadFile(indexHtml)
   }
@@ -106,6 +107,14 @@ app.on('activate', () => {
   } else {
     createWindow()
   }
+})
+
+ipcMain.on('window-close', function () {
+  win.close()
+})
+
+ipcMain.on('window-open-tools', function () {
+  win.webContents.openDevTools()
 })
 
 // New window example arg: new windows url

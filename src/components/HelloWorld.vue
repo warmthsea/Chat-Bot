@@ -1,12 +1,20 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ipcRenderer } from 'electron'
 
 defineProps<{ msg: string }>()
 
 const count = ref(0)
+
+const testOpenTools = () => {
+  ipcRenderer.send('window-open-tools')
+  // ipcRenderer.send('window-close')
+}
 </script>
 
 <template>
+  <button type="button" @click="testOpenTools()">test open tools</button>
+
   <h1>{{ msg }}</h1>
 
   <div class="card">
@@ -19,8 +27,7 @@ const count = ref(0)
 
   <p>
     Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
+    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a
     >, the official Vue + Vite starter
   </p>
   <p>
