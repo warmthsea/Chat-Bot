@@ -1,4 +1,5 @@
 # Chat-Bot:  Compatible with macOS, Windows, and Linux
+[![GitHub Build](https://github.com/electron-vite/electron-vite-vue/actions/workflows/build.yml/badge.svg)](https://github.com/warmthsea/Chat-Bot/actions/workflows/build.yml)
 [![GitHub Repo stars](https://img.shields.io/github/stars/warmthsea/Chat-Bot?style=social)](https://github.com/warmthsea/Chat-Bot/stargazers)
 
 ## Develop Step
