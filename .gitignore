@@ -32,3 +32,6 @@ yarn.lock
 # d.ts
 # components.d.ts
 # auto-imports.d.ts
+
+# API keys
+key.ts
