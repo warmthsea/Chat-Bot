@@ -1,9 +1,10 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { nextTick, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { shell } from 'electron'
 import type { MenuItemType } from '~/types'
 
+const route = useRoute()
 const router = useRouter()
 
 const list: MenuItemType[] = [
@@ -13,6 +14,8 @@ const list: MenuItemType[] = [
   { name: 'Sage', icon: 'https://poe.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FpurpleAvatar.d066304c.png&w=48&q=75' },
 ]
 
+const mainRef = ref<HTMLElement>()
+
 const active = ref<MenuItemType>(list[0])
 function goRoute(item: MenuItemType) {
   if (item.disabled)
@@ -20,6 +23,11 @@ function goRoute(item: MenuItemType) {
   active.value = item
   router.push(item.name)
 }
+
+watch(() => route.path, async () => {
+  await nextTick()
+  mainRef.value?.scrollTo(0, mainRef.value.scrollHeight)
+}, { immediate: true })
 </script>
 
 <template>
@@ -74,7 +82,7 @@ function goRoute(item: MenuItemType) {
           <Event />
         </div>
         <div class="flex-1 w-full pr-0.5 overflow-hidden">
-          <div class="px-4 h-full overflow-y-scroll">
+          <div ref="mainRef" class="px-4 h-full overflow-y-scroll">
             <router-view />
           </div>
         </div>
