@@ -52,7 +52,7 @@ async function createWindow() {
     frame: !true,
     // frame: true,
     titleBarStyle: 'hiddenInset',
-    icon: join(process.env.PUBLIC, 'logo.ico'),
+    icon: join(process.env.PUBLIC, 'icon.ico'),
     webPreferences: {
       preload,
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production

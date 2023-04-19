@@ -16,8 +16,8 @@
 
 ::-webkit-scrollbar {
   background-color: transparent;
-  width: 11px;
-  height: 11px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -25,11 +25,11 @@
   background-clip: content-box;
   border: 2px solid transparent;
   background-color: inherit;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 0, 0, 0.2) ;
+  background-color: rgba(0, 0, 0, 0.1) ;
 }
 
 a {

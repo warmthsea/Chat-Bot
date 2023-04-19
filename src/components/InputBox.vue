@@ -1,11 +1,37 @@
+<script lang="ts" setup>
+const emit = defineEmits(['sendMsg'])
+
+const msg = ref('It was a dark and stormy night...')
+
+const textareaRef = ref<HTMLInputElement>()
+function focus() {
+  textareaRef.value?.focus()
+}
+
+function sendMsg() {
+  console.log('send msg')
+  emit('sendMsg', msg.value)
+  msg.value = ''
+}
+
+defineExpose({
+  focus,
+  sendMsg,
+})
+</script>
+
 <template>
   <div class="bg-stone-50 p-4 flex items-center">
     <textarea
+      ref="textareaRef"
+      v-model="msg"
+      placeholder="type a message..."
       class="border border-purple-100  focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparen w-full h-20 p-2 rounded-lg " rows="2"
-    >  It was a dark and stormy night...</textarea>
+    />
     <div>
       <div
         class="ml-4 w-11 h-11 overflow-hidden rounded-full flex items-center justify-center cursor-pointer duration-75 select-none bg-purple-500 hover:bg-purple-600 active:bg-purple-400"
+        @click="sendMsg()"
       >
         <!-- <svg t="1681806502104" class="icon w-7" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="16278" width="128" height="128"><path d="M683.41351 851.872734c-6.478552 0-12.361539-3.89675-14.863523-9.92914L552.133557 561.38578l-405.592528 5.786797c-7.494695 0.150426-14.107299-5.002944-15.875572-12.310374-1.769296-7.30743 1.755993-14.864546 8.491395-18.205641l731.377406-362.851075c5.745864-2.850931 12.634762-2.018983 17.534352 2.117221 4.901637 4.13518 6.881734 10.785647 5.03876 16.928554l-194.271612 647.548162c-1.955538 6.520507-7.79964 11.104919-14.59951 11.450796C683.962002 851.865571 683.685709 851.872734 683.41351 851.872734zM562.819944 529.036002c6.499018 0 12.369725 3.9121 14.865569 9.928117l103.290481 248.925373L851.60821 219.133859 217.016127 533.968337l345.57255-4.930289C562.665425 529.036002 562.742173 529.036002 562.819944 529.036002z" fill="#fff" p-id="16279" /></svg> -->
         <svg

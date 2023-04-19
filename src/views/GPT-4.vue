@@ -3,7 +3,7 @@
 
 <template>
   <div class="">
-    gpt-4
+    GPT-4
   </div>
 </template>
 

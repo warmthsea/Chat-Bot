@@ -1,12 +1,18 @@
 <script lang="ts" setup>
-const router = useRouter()
+import { useMsgStore } from '~/store/msg'
+
+const msgStore = useMsgStore()
 </script>
 
 <template>
-  <div class="">
-    dpt
-    <div v-for=" i in 100" :key="i">
-      test scroll -{{ i }}
+  <div>
+    <div
+      v-for="i in msgStore.contentlist" :key="i"
+      class="flex justify-end"
+    >
+      <div class="rounded-xl bg-purple-400 text-white inline-block p-2 m-2 ">
+        {{ i }}
+      </div>
     </div>
   </div>
 </template>
