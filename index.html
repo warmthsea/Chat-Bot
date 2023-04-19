@@ -10,7 +10,17 @@
     />
     <title>Chat Bot</title>
   </head>
-  <body>
+
+  <style>
+    .app-drag{
+      -webkit-app-region: drag;
+    }
+    .app-no-drag{
+      -webkit-app-region: no-drag;
+    }
+  </style>
+
+  <body class="app-drag">
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
