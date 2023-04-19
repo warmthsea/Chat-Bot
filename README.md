@@ -1,7 +1,7 @@
 # Chat-Bot:  Compatible with macOS, Windows, and Linux
 [![GitHub Repo stars](https://img.shields.io/github/stars/warmthsea/Chat-Bot?style=social)](https://github.com/warmthsea/Chat-Bot/stargazers)
 
-## Develop Setp
+## Develop Step
  
 ```bash
 npm config set electron_mirror https://npm.taobao.org/mirrors/electron/
