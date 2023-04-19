@@ -4,6 +4,7 @@ import { onInputBox, onMenu } from './index'
 import HeaderTitle from '~/components/HeaderTitle.vue'
 import { menuList } from '~/const/menu'
 import { useMsgStore } from '~/store/msg'
+import { sendApi } from '~/api'
 
 const route = useRoute()
 const router = useRouter()
@@ -18,6 +19,9 @@ async function msgReceive(val: string) {
   msgStore.contentlist.push(val)
   await nextTick()
   mainRef.value?.scrollTo(0, mainRef.value.scrollHeight)
+  sendApi(val).then((res) => {
+    console.log(res)
+  })
 }
 
 watch(() => route.path, async () => {

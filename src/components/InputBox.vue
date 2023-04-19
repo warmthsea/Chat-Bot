@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const emit = defineEmits(['sendMsg'])
 
-const msg = ref('It was a dark and stormy night...')
+const msg = ref('Hi')
 
 const textareaRef = ref<HTMLInputElement>()
 function focus() {
