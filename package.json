@@ -30,7 +30,7 @@
     "@types/node": "^18.15.11",
     "@vitejs/plugin-vue": "^4.1.0",
     "autoprefixer": "^10.4.14",
-    "electron": "^23.1.1",
+    "electron": "^24.1.2",
     "electron-builder": "^23.6.0",
     "eslint": "^8.38.0",
     "postcss": "^8.4.22",
