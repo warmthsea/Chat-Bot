@@ -45,6 +45,8 @@ async function createWindow() {
     title: 'Chat Bot',
     width: 900,
     height: 700,
+    minWidth: 700,
+    minHeight: 500 ,
     x: 1300,
     y: 600,
     frame: !true,
