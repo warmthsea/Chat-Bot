@@ -12,11 +12,20 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "noEmit": true,
+    "types": [
+      "vite/client"
+    ],
+
     "paths": {
       "~/*": ["./src/*"],
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "auto-imports.d.ts",
+    "components.d.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -28,3 +28,7 @@ release
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+
+# d.ts
+components.d.ts
+auto-imports.d.ts
