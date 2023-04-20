@@ -17,6 +17,5 @@ npm run dev
 ## About
  
  `Electron`  + `Vue` +  `Vite` 
-
-![image](https://user-images.githubusercontent.com/45450994/232738122-3890dbf0-7bf2-4bcc-939a-63e5fb1c9f3d.png)
-
+ 
+![image](https://user-images.githubusercontent.com/45450994/233313977-fe6988d4-f0be-4a89-9621-9530937cd7f1.png)
