@@ -34,4 +34,4 @@ yarn.lock
 # auto-imports.d.ts
 
 # API keys
-key.ts
+.env

@@ -39,6 +39,7 @@
     "pinia": "^2.0.34",
     "pinia-plugin-persistedstate": "^3.1.0",
     "postcss": "^8.4.22",
+    "sass": "^1.62.0",
     "scss": "^0.2.4",
     "tailwindcss": "^3.3.1",
     "typescript": "^5.0.2",

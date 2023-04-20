@@ -3,7 +3,7 @@ import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 import './tailwind.css'
-import './style.css'
+import './style.scss'
 
 import App from './App.vue'
 import router from './router'

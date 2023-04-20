@@ -15,6 +15,8 @@ const mainRef = ref<HTMLElement>()
 const { active, goRoute } = onMenu(router)
 const { inputBoxRef } = onInputBox()
 
+const isChat = computed(() => route.path !== '/Settings')
+
 async function msgReceive(val: string) {
   msgStore.contentlist.push(val)
   await nextTick()
@@ -51,13 +53,13 @@ watch(() => route.path, async () => {
         </div>
         <div class="app-no-drag flex-1 w-full pr-0.5 overflow-hidden">
           <div ref="mainRef" class="pr-0.5 h-full overflow-y-scroll">
-            <Prompt @send-msg="msgReceive" />
+            <Prompt v-if="isChat" @send-msg="msgReceive" />
             <div class="pl-4 pb-60">
               <router-view />
             </div>
           </div>
         </div>
-        <InputBox ref="inputBoxRef" class="app-no-drag" @send-msg="msgReceive" />
+        <InputBox v-if="isChat" ref="inputBoxRef" class="app-no-drag" @send-msg="msgReceive" />
       </div>
     </div>
   </div>

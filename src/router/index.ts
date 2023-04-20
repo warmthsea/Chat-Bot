@@ -24,12 +24,12 @@ export default createRouter({
           name: 'sage',
           component: () => import('@/views/Sage.vue'),
         },
+        {
+          path: '/Settings',
+          name: 'Settings',
+          component: () => import('~/views/Settings.vue'),
+        },
       ],
-    },
-    {
-      path: '/key',
-      name: 'key',
-      component: () => import('~/views/key/index.vue'),
     },
     {
       path: '/:catchAll(.*)',

@@ -10,12 +10,14 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     404: typeof import('./src/components/catch/404.vue')['default']
+    Container: typeof import('./src/components/Container.vue')['default']
     Event: typeof import('./src/components/Event.vue')['default']
     Header: typeof import('./src/components/HeaderTitle.vue')['default']
     HeaderTitle: typeof import('./src/components/HeaderTitle.vue')['default']
     InputBox: typeof import('./src/components/InputBox.vue')['default']
     Logo: typeof import('./src/components/Logo.vue')['default']
     Menu: typeof import('./src/components/Menu.vue')['default']
+    MenuItem: typeof import('./src/components/MenuItem.vue')['default']
     Prompt: typeof import('./src/components/Prompt.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
