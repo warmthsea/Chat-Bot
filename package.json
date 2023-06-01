@@ -28,7 +28,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.4",
     "@electron/remote": "^2.0.9",
-    "@types/node": "^18.15.11",
+    "@types/node": "^20.2.5",
     "@vitejs/plugin-vue": "^4.1.0",
     "@vueuse/core": "^10.0.2",
     "autoprefixer": "^10.4.14",
