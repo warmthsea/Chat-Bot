@@ -1,4 +1,4 @@
-# Chat-Bot:  Compatible with macOS, Windows, and Linux
+# ![00767A14](https://github.com/warmthsea/Chat-Bot/assets/45450994/29f24322-11e8-475d-bae1-9126bba39962) Chat-Bot:  Compatible with macOS, Windows, and Linux
 [![GitHub Build](https://github.com/electron-vite/electron-vite-vue/actions/workflows/build.yml/badge.svg)](https://github.com/warmthsea/Chat-Bot/actions/workflows/build.yml)
 [![GitHub Repo stars](https://img.shields.io/github/stars/warmthsea/Chat-Bot?style=social)](https://github.com/warmthsea/Chat-Bot/stargazers)
 
