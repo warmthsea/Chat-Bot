@@ -26,7 +26,7 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.38.4",
+    "@antfu/eslint-config": "^0.43.1",
     "@electron/remote": "^2.0.9",
     "@types/node": "^20.2.5",
     "@vitejs/plugin-vue": "^4.1.0",
