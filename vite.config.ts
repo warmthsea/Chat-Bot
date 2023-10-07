@@ -86,14 +86,29 @@ export default defineConfig(({ command }) => {
       })
     ],
     server:
-      process.env.VSCODE_DEBUG &&
+      process.env.VSCODE_DEBUG ?
       (() => {
         const url = new URL(pkg.debug.env.VITE_DEV_SERVER_URL)
         return {
           host: url.hostname,
           port: +url.port
         }
-      })(),
+      })():{
+        proxy: {
+          '/test': {
+            target: 'http://127.0.0.1:1000',
+            ws: true,
+            changeOrigin: true,
+            rewrite: path => path.replace(/^\/test/, ''),
+          },
+          '/openai':{
+            target:'https://api.openai.com',
+            ws:true,
+            changeOrigin: true,
+            rewrite: path => path.replace(/^\/test/, ''),
+          }
+        },
+      },
     clearScreen: false
   }
 })

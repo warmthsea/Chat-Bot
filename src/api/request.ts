@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const service = axios.create({
-  baseURL: 'https://api.openai.com',
+  baseURL: '',
   timeout: 8000,
   headers: {
     'Content-Type': 'application/json',
@@ -15,7 +15,7 @@ service.interceptors.request.use((config) => {
 
 service.interceptors.response.use(
   (response) => {
-    return response.data
+    return response
   },
   (error) => {
     return Promise.reject(error)
